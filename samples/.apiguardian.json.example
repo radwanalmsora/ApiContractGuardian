@@ -1,0 +1,9 @@
+{
+  "suppressions": [
+    {
+      "code": "ENDPOINT_REMOVED",
+      "operation": "DELETE /api/orders/{}",
+      "reason": "Delete moved to soft-delete in v2; clients migrated (ticket ORD-123)"
+    }
+  ]
+}
