@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="ApiContractGuardian.7B3E1A52-9C44-4D1E-A6B8-2F5D0C9E7A11" Version="1.0.0" Language="en-US" Publisher="YourName" />
+    <Identity Id="ApiContractGuardian.7B3E1A52-9C44-4D1E-A6B8-2F5D0C9E7A11" Version="1.0.0" Language="en-US" Publisher="Radwan Almsora" />
     <DisplayName>API Contract Guardian</DisplayName>
     <Description xml:space="preserve">Detects breaking changes between two Swagger/OpenAPI specs of an ASP.NET Core API and produces a Markdown report before you publish.</Description>
     <Tags>openapi, swagger, aspnetcore, api, breaking-changes</Tags>
