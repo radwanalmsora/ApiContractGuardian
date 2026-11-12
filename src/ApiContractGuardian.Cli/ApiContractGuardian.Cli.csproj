@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>ApiContractGuardian.Cli</RootNamespace>
+    <AssemblyName>apiguard</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ApiContractGuardian.Core\ApiContractGuardian.Core.csproj" />
+  </ItemGroup>
+</Project>
