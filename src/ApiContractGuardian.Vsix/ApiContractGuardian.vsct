@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-21/VSCT" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Extern href="stdidcmd.h" />
+  <Extern href="vsshlids.h" />
+  <Commands package="guidPackage">
+    <Groups>
+      <Group guid="guidCmdSet" id="GuardianGroup" priority="0x0600">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS" />
+      </Group>
+    </Groups>
+    <Buttons>
+      <Button guid="guidCmdSet" id="CompareCmdId" priority="0x0100" type="Button">
+        <Parent guid="guidCmdSet" id="GuardianGroup" />
+        <Strings>
+          <ButtonText>API Contract Guardian: Compare Specs...</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+  <Symbols>
+    <GuidSymbol name="guidPackage" value="{7B3E1A52-9C44-4D1E-A6B8-2F5D0C9E7A11}" />
+    <GuidSymbol name="guidCmdSet" value="{5C8D2F14-3B7A-4E90-9D21-6A4B8C0E1F33}">
+      <IDSymbol name="GuardianGroup" value="0x1020" />
+      <IDSymbol name="CompareCmdId" value="0x0100" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>
