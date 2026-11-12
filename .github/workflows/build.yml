@@ -1,0 +1,33 @@
+name: build
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  engine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with: { dotnet-version: '8.0.x' }
+      - name: Unit tests
+        run: dotnet test tests/ApiContractGuardian.Tests/ApiContractGuardian.Tests.csproj -c Release
+      - name: Compare sample specs (breaking changes are EXPECTED here)
+        continue-on-error: true
+        run: |
+          dotnet run -c Release --project src/ApiContractGuardian.Cli -- samples/orders-v1.json samples/orders-v2.json --report orders-report.md
+          dotnet run -c Release --project src/ApiContractGuardian.Cli -- samples/swagger2-v1.json samples/swagger2-v2.json --report swagger2-report.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sample-reports
+          path: '*-report.md'
+
+  vsix:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: microsoft/setup-msbuild@v2
+      - name: Build VSIX
+        run: msbuild src\ApiContractGuardian.Vsix\ApiContractGuardian.Vsix.csproj /restore /p:Configuration=Release /p:DeployExtension=false
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ApiContractGuardian-vsix
+          path: src/ApiContractGuardian.Vsix/bin/Release/*.vsix
